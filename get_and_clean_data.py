@@ -36,11 +36,13 @@ def get_attributes(id_list):
             attributes_by_song.append(j)
     return attributes_by_song
 
-def attributes_to_data_frame(attribute_list):
-    df = pd.DataFrame(attribute_list)
-    return df
+def pop_ids_attr_to_data_frame(attribute_list, popularity_list):
+    attr_df = pd.DataFrame(attribute_list)
+    pop_df = pd.Series(popularity_list)
+    attr_df["popularity"] = pop_df
+    return attr_df
 
 my_playlist = get_playlist_tracks("Pitchfork", "spotify:user:pitchforkmedia:playlist:31mWsJSygA2Vx1FyyhXFS4")
 pop, my_ids = get_popularity_and_ids(my_playlist)
 my_attributes = get_attributes(my_ids)
-df = attributes_to_data_frame(my_attributes)
+dataframe = pop_ids_attr_to_data_frame(my_attributes, pop)
