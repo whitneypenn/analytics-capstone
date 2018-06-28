@@ -78,8 +78,8 @@ Here is my resulting colinearity:
 
 I started by quickly using SK Learn's out of the box models. I figured Elastic Net would cover both Ridge and Lasso, and there were no hyper-parameters to tune for OLS, so I moved forward with both of those.
 
-|Model | Train R<sup>2</sup>      | Test R<sup>2</sup>| Train RMSE | Test RMSE |
-|------| ------------------------------| --------|
+|Model | Train R<sup>2</sup> | Test R<sup>2</sup>| Train RMSE | Test RMSE |
+|------| ----------| --------| --- | ---| 
 | OLS     | 0.32  |  0.34      |   21.89 | 20.31 |
 | Lasso |  0.22  | 0.23 | 23.29 |  22.29 |
 | Ridge | 0.32 | 0.34 | 21.89 | 20.32|
