@@ -79,7 +79,7 @@ Here is my resulting colinearity:
 I started by quickly using SK Learn's out of the box models. I figured Elastic Net would cover both Ridge and Lasso, and there were no hyper-parameters to tune for OLS, so I moved forward with both of those.
 
 |Model | Train R<sup>2</sup> | Test R<sup>2</sup>| Train RMSE | Test RMSE |
-|------| ----------| --------| --- | ---| 
+|------| ----------| --------| --- | ---|
 | OLS     | 0.32  |  0.34      |   21.89 | 20.31 |
 | Lasso |  0.22  | 0.23 | 23.29 |  22.29 |
 | Ridge | 0.32 | 0.34 | 21.89 | 20.32|
@@ -89,17 +89,17 @@ I started by quickly using SK Learn's out of the box models. I figured Elastic N
 The plots below show the cross validated max values for R<sup>2</sup> and RMSE across varying values of alpha. For Ridge I tested 1000 values of alpha between .01 and 1000, and for ElasticNet I test 1000 values of alpha between .01 and 50.
 
 
-![R^2 For Ridge Model ](src/images/Ridge Modelplot_R2_alpha_comparisons.png)
+![R^2 For Ridge Model ](src/images/Ridge_Model_plot_R2_alpha_comparisons.png)
 
-![RMSE for Ridge Model](src/images/Ridge Modelplot_RMSE_alpha_comparisons.png)
+![RMSE for Ridge Model](src/images/Ridge_Modelplot_RMSE_alpha_comparisons.png)
 
 These plots show us that we are not rewarded for any regularization - the model needs all the data it can get to attempt to fit the model. Notice that our R<sup>2</sup> doesn't go above .32 and our RMSE never goes below 20.
 
 ### ElasticNet
 
-![R^2 For ElasticNet ](src/images/Elastic Net Model with L1 Ratio .25plot_R2_alpha_comparisons.png)
+![R^2 For ElasticNet ](src/images/Elastic_Net_Model_with_L1_Ratio_point_25_plot_R2_alpha_comparisons.png)
 
-![RMSE for ElasticNet](src/images/Elastic Net Model with L1 Ratio .25plot_RMSE_alpha_comparisons.png)
+![RMSE for ElasticNet](src/images/Elastic_Net_Model_with_L1_atio_point_25.png)
 
 Again, there is no reward for any regularization. Our R<sup>2</sup> doesn't break .3 and RMSE doesn't go below 20.
 
