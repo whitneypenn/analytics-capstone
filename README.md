@@ -15,11 +15,11 @@ I used 10 playlists as my sample of songs. I went for playlists curated by journ
 Spotify's Audio Features Object contains information for various metadata fields, outlined in full [here](https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/). Relevant descriptions pulled below.
 
 |  Target   |   Description |
-| - | |
+| ---- | |
 | popularity |  The popularity of the track. The value will be between 0 and 100, with 100 being the most popular. Spotify calculates the popularity by algorithm and is based, in the most part, on the total number of plays the track has had and how recent those plays are. |
 
 |  Feature  |  Description |
-|-
+|--------|-----------|
 | acousticness |  A confidence measure from 0.0 to 1.0 of whether the track is acoustic. 1.0 represents high confidence the track is acoustic. |    
 | danceability |  Danceability describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity. A value of 0.0 is least danceable and 1.0 is most danceable. |      
 | duration_ms | 	The duration of the track in milliseconds. |
@@ -35,7 +35,7 @@ Spotify's Audio Features Object contains information for various metadata fields
 | valence | A measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive  | |
 
 #### Distribution of Popularity:
-![Popularity_Dist](notebooks/popularity_hist.png)
+![Popularity_Dist](src/images/popularity_hist.png)
 
 #### Attributes By Popularity
 ![Attribute By Popularity](notebooks/mean_attribute_values.png)
@@ -43,19 +43,23 @@ Spotify's Audio Features Object contains information for various metadata fields
 #### Popularity vs (Select) Track Attributes
 Selection of the most interesting below, see all of them in the images folder.
 
-![Popularity vs Danceability ](notebooks/danceability_scatter_plt.png)
+![Popularity vs Danceability ](src/images/danceability_scatter_plt.png)
 
-![Popularity vs Energy](notebooks/energy_scatter_plt.png)
+![Popularity vs Energy](src/images/energy_scatter_plt.png)
 
-![Popularity vs Loudness](notebooks/loudness_scatter_plt.png)
+![Popularity vs Loudness](src/images/loudness_scatter_plt.png)
 
-![Popularity vs Valence](notebooks/valence_scatter_plt.png)
+![Popularity vs Valence](src/images/valence_scatter_plt.png)
 
 ## Feature Engineering
 
-## Modeling
+## Building the Model
+
 
 ## Results
+
+
+
 
 ## Future Work
 
