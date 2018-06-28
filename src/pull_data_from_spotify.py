@@ -83,22 +83,15 @@ playlists_to_scrape = [("Pitchfork", "spotify:user:pitchforkmedia:playlist:31mWs
                         ("Spotify", "spotify:user:spotify:playlist:37i9dQZF1DX4o1oenSJRJd"),
                         ("New York Times Magazine", "spotify:user:nytmag:playlist:1fIoLrK0POksamXuvzbTee"),
                         ("Spotify", "spotify:user:spotify:playlist:37i9dQZF1DWYnwbYQ5HnZU"),
-                        ("Spotify", "spotify:user:spotify:playlist:37i9dQZF1DX0XUsuxWHRQd"),
                         ("Spotifnation", "spotify:user:7jt4w8i9zjsn36sngapjop302:playlist:291drwQ10IlkH0hf1TJcFk"),
                         ("Caribou", "spotify:user:cariboutheband:playlist:4Dg0J0ICj9kKTGDyFu0Cv4"),
                         ("Spotify", "spotify:user:spotify:playlist:37i9dQZF1DXcOFePJj4Rgb"),
                         ("touchepurley", "spotify:user:touchepurley:playlist:5cJXS1TnQhldZyI4ObwR7l"),
-                        ("Leonard Partoza Balang", "spotify:user:leonardbalang:playlist:0M3Xy7HCXJwPUbQKdOGt51")]
+                        ("Leonard Partoza Balang", "spotify:user:leonardbalang:playlist:0M3Xy7HCXJwPUbQKdOGt51"),
+                        ("whitneypenn", "spotify:user:whitneypenn:playlist:7rpjDLKSDl3eXxUD1rAuMI")]
 
 a = scrape_playlist(playlists_to_scrape[0])
-a = a.append(scrape_playlist(playlists_to_scrape[1]))
-a = a.append(scrape_playlist(playlists_to_scrape[2]))
-a = a.append(scrape_playlist(playlists_to_scrape[3]))
-a = a.append(scrape_playlist(playlists_to_scrape[4]))
-a = a.append(scrape_playlist(playlists_to_scrape[5]))
-a = a.append(scrape_playlist(playlists_to_scrape[6]))
-a = a.append(scrape_playlist(playlists_to_scrape[7]))
-a = a.append(scrape_playlist(playlists_to_scrape[8]))
-a = a.append(scrape_playlist(playlists_to_scrape[9]))
+for i in range(1, len(playlists_to_scrape)):
+    a = a.append(scrape_playlist(playlists_to_scrape[i]))
 
-a.to_csv('data/spotify_data.csv')
+a.to_csv('~/Galvanize/analytics-capstone/data/spotify_data_2.csv')
