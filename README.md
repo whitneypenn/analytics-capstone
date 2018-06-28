@@ -15,7 +15,7 @@ I used 10 playlists as my sample of songs. I went for playlists curated by journ
 Spotify's Audio Features Object contains information for various metadata fields, outlined in full [here](https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/). Relevant descriptions pulled below.
 
 |  Target   |   Description |
-| ---- | |
+| ---- | ---------- |
 | popularity |  The popularity of the track. The value will be between 0 and 100, with 100 being the most popular. Spotify calculates the popularity by algorithm and is based, in the most part, on the total number of plays the track has had and how recent those plays are. |
 
 |  Feature  |  Description |
