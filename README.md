@@ -38,7 +38,7 @@ Spotify's Audio Features Object contains information for various metadata fields
 ![Popularity_Dist](src/images/popularity_hist.png)
 
 #### Attributes By Popularity
-![Attribute By Popularity](notebooks/mean_attribute_values.png)
+![Attribute By Popularity](src/images/mean_attribute_values.png)
 
 #### Popularity vs (Select) Track Attributes
 Selection of the most interesting below, see all of them in the images folder.
