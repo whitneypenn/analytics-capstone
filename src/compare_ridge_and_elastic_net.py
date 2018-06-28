@@ -101,11 +101,11 @@ ridge_a_range = np.linspace(.01, 1000, 100)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25)
 
 elastic_test_r2, elastic_train_r2, elastic_test_rmse, elastic_train_rmse = compare_elastic_models_over_alphas(elastic_a_range, X_train, y_train)
-#print_stats("Elastic", elastic_test_r2, elastic_train_r2, elastic_test_rmse, elastic_train_rmse )
+print_stats("Elastic", elastic_test_r2, elastic_train_r2, elastic_test_rmse, elastic_train_rmse )
 plot_R2_alpha_comparisons(elastic_a_range, elastic_test_r2, elastic_train_r2, 'Elastic Net Model with L1 Ratio .25')
 plot_RMSE_alpha_comparisons(elastic_a_range, elastic_test_rmse, elastic_train_rmse, 'Elastic Net Model with L1 Ratio .25')
 
 ridge_test_r2, ridge_train_r2, ridge_test_rmse, ridge_train_rmse = compare_ridge_over_alphas(ridge_a_range, X_train, y_train)
-#print_stats("Ridge", ridge_test_r2, ridge_train_r2, ridge_test_rmse, ridge_train_rmse)
+print_stats("Ridge", ridge_test_r2, ridge_train_r2, ridge_test_rmse, ridge_train_rmse)
 plot_R2_alpha_comparisons(ridge_a_range, ridge_test_r2, ridge_train_r2, 'Ridge Model')
 plot_RMSE_alpha_comparisons(ridge_a_range, ridge_test_rmse, ridge_train_rmse, 'Ridge Model')

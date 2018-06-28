@@ -79,19 +79,12 @@ client_credentials_manager = SpotifyClientCredentials(client_id=os.getenv('SPOTI
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 sp.trace=False
 
-playlists_to_scrape = [("Pitchfork", "spotify:user:pitchforkmedia:playlist:31mWsJSygA2Vx1FyyhXFS4"),
-                        ("Spotify", "spotify:user:spotify:playlist:37i9dQZF1DX4o1oenSJRJd"),
-                        ("New York Times Magazine", "spotify:user:nytmag:playlist:1fIoLrK0POksamXuvzbTee"),
-                        ("Spotify", "spotify:user:spotify:playlist:37i9dQZF1DWYnwbYQ5HnZU"),
-                        ("Spotifnation", "spotify:user:7jt4w8i9zjsn36sngapjop302:playlist:291drwQ10IlkH0hf1TJcFk"),
-                        ("Caribou", "spotify:user:cariboutheband:playlist:4Dg0J0ICj9kKTGDyFu0Cv4"),
-                        ("Spotify", "spotify:user:spotify:playlist:37i9dQZF1DXcOFePJj4Rgb"),
-                        ("touchepurley", "spotify:user:touchepurley:playlist:5cJXS1TnQhldZyI4ObwR7l"),
-                        ("Leonard Partoza Balang", "spotify:user:leonardbalang:playlist:0M3Xy7HCXJwPUbQKdOGt51"),
-                        ("whitneypenn", "spotify:user:whitneypenn:playlist:7rpjDLKSDl3eXxUD1rAuMI")]
+playlists_to_scrape = [("whitneypenn", "spotify:user:whitneypenn:playlist:44sRyzuMuFwNUGq6otEvGG")]
 
 a = scrape_playlist(playlists_to_scrape[0])
-for i in range(1, len(playlists_to_scrape)):
-    a = a.append(scrape_playlist(playlists_to_scrape[i]))
+if len(playlists_to_scrape) > 0:
+    for i in range(1, len(playlists_to_scrape)):
+        a = a.append(scrape_playlist(playlists_to_scrape[i]))
 
-a.to_csv('~/Galvanize/analytics-capstone/data/spotify_data_2.csv')
+
+a.to_csv('~/Galvanize/analytics-capstone/data/unseen_data.csv')
