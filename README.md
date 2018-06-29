@@ -14,10 +14,15 @@ I used 10 playlists as my sample of songs. I went for playlists curated by journ
 ## EDA + Feature Engineering
 Spotify's Audio Features Object contains information for various metadata fields, outlined in full [here](https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/). Relevant descriptions pulled below.
 
+#### Target
 |  Target   |   Description |
 | ---- | ---------- |
 | popularity |  The popularity of the track. The value will be between 0 and 100, with 100 being the most popular. Spotify calculates the popularity by algorithm and is based, in the most part, on the total number of plays the track has had and how recent those plays are. |
 
+#### Distribution of Popularity:
+![Popularity_Dist](src/images/popularity_hist.png)
+
+#### Features
 |  Feature  |  Description |
 |--------|-----------|
 | acousticness |  A confidence measure from 0.0 to 1.0 of whether the track is acoustic. 1.0 represents high confidence the track is acoustic. |    
@@ -34,14 +39,11 @@ Spotify's Audio Features Object contains information for various metadata fields
 | time_signature	| An estimated overall time signature of a track. |
 | valence | A measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive  | |
 
-#### Distribution of Popularity:
-![Popularity_Dist](src/images/popularity_hist.png)
-
 #### Attributes By Popularity
 ![Attribute By Popularity](src/images/mean_attribute_values.png)
 
 #### Popularity vs (Select) Track Attributes
-Selection of the most interesting below, see all of them in the images folder.
+Selection of the most interesting below, see all of them in the [images](https://github.com/whitneypenn/analytics-capstone/tree/master/src/images) folder.
 
 ![Popularity vs Danceability ](src/images/danceability_scatter_plt.png)
 
@@ -56,7 +58,7 @@ Selection of the most interesting below, see all of them in the images folder.
 2. I removed all non-numerical attributes (analysis_url, id, track_href, and uri).
 3. After attempting to turn the time signature attribute into a categorial feature, I was still getting an infinite colinearity for those columns, which was resulting in runtime errors, so I decided to remove the features.
 
-Here is my resulting colinearity:
+Here are the final features and their VIFs:
 
 |           Feature       |      VIF |
 |-----------------|-------|
@@ -76,7 +78,7 @@ Here is my resulting colinearity:
 
 ## Building the Model
 
-I started by quickly using SK Learn's out of the box models. I figured Elastic Net would cover both Ridge and Lasso, and there were no hyper-parameters to tune for OLS, so I moved forward with both of those.
+I started using SK Learn's out of the box models. I moved forward with ElasticNet and Ridge models to see if I could better the models by tuning hyper-parameters.
 
 |Model | Train R<sup>2</sup> | Test R<sup>2</sup>| Train RMSE | Test RMSE |
 |------| ----------| --------| --- | ---|
@@ -106,7 +108,7 @@ Again, there is no reward for any regularization. Our R<sup>2</sup> doesn't brea
 Note: I did test L1 values for the elastic model, and they were very close. L1 = .25 was marginally the best, but I'm not convinced that it wasn't random.
 
 ## Results
-At this point, I became convinced that there simply wasn't a linear relationship to be found in this data. I trained an OLS model with all my training data, and pulled Spotify's Today's Top Hits Playlist as my unseen data.
+Since no alpha showed better performance than the OLS model, I trained an OLS model with all my training data, and pulled [Spotify's Today's Top Hits Playlist as my unseen data](https://github.com/whitneypenn/analytics-capstone/blob/master/data/unseen_data.csv) to test against. Here are the model coefficients and intercept.
 
 #### OLS Coefficients
 |    | Feature                |      Coefficient |
@@ -128,6 +130,7 @@ Intercept: 44.76
 
 ![Predicted vs Actual - OLS](src/images/predicted_vs_actual_ols.png)
 
+#### Metrics
 
 | Model | R<sup>2</sup> | RMSE |
 | -----| ------------- | ------|
@@ -135,7 +138,7 @@ Intercept: 44.76
 
 As you can see, the models essentially fail to predict popularity based on unseen data.
 
-I believe that these results are due to the fact that there is no linear relationship between the song attributes I had and the popularity of the song.
+I believe that these results are due to the fact that there is no linear relationship between the song attributes I have access to and the popularity of the song.
 
 ## Future Work
 With additional data over more time, a relationship might be decipherable. You would probably need more variance in the song attributes across more genres and time periods. I believe My data was representative of pop, country, and rap music -- but there are definitely more (less popular) genres out there. With a wider selection of genres and musical attributes, you could probably get a close approximation of what a pop song's attributes are, and then predict that it would be popular based on genre alone.
